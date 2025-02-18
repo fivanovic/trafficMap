@@ -13,6 +13,7 @@ L2NameLoc = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0])
 
 
 L2Map = np.zeros([55,300],dtype=(str,1))
+L2statLoc = np.zeros([19,2])
 
 def writer(labels,names,map, i, j, k):
     temp = list(names[k])
@@ -84,22 +85,23 @@ def lines(map,dir, i, j, k):
         
         return i, j
         
-def draw(map,nameLoc,stat,dir,statNum):
+def draw(map,nameLoc,stat,dir,statNum,statLoc):
     i = 1
     j = 1
     p = 0
     while p < statNum:
         map[j,i] = "O"
+        statLoc[p,0] = j
+        statLoc[p,1] = i
         writer(nameLoc,stat,map,i,j,p)
         lin = lines(map, dir,i,j,p)
         i = lin[0] 
         j = lin[1]
-        map[j,i] = "O"
         p = p+1
-    return map
+    return map,statLoc
 
-L2Map = draw(L2Map,L2NameLoc,L2stat,L2dir,19)
-#print(L2Map)
+L2Map,L2statLoc = draw(L2Map,L2NameLoc,L2stat,L2dir,19,L2statLoc)
+#print(L2statLoc)
 
 mywindow = curses.initscr()
 curses.resize_term( 2000, 2000 )
@@ -115,7 +117,6 @@ def flasher(window,s):
         s = 0
         return s
     
-
 def updateMatrix(m):
 
         return m
