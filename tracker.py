@@ -7,8 +7,8 @@ np.set_printoptions(threshold=sys.maxsize)
 
 L2stat = np.array([" VDB", " HLD", " AVS", " JAG", " NYT ", " AAS", " JLG", " KLD", " ETT", " SGP", " DAL", " GLT", " SBS", " PLP", " GNT", " PTP", " FIB", " FRB", " AAU"],dtype=object)
 L2split1 = ["SML", "HPT"]
-L2dir = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4])
-L2NameLoc = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+L2dir = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,4])
+L2NameLoc = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0])
 
 
 
@@ -71,6 +71,14 @@ def lines(map,dir, i, j, k):
             map[j,i] = "|"
             z = z+1
             j = j+1
+        return i, j
+    if dir[k] == 2:
+        z = 0
+        i = i-1
+        while z<7:
+            map[j,i] = "-"
+            z = z+1
+            i = i-1
         return i, j
     if dir[k] == 4:
         
