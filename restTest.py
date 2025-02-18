@@ -16,14 +16,16 @@ url = f"https://www.rejseplanen.dk/api/"
 #myrep = s.get(url+f"lineinfo?lineId=028_280_06_2&date=2025-02-17")
 #print(myrep.json())
 
-myrep = s.get(url+f"location.name?input=jomfru ane gade&type=S")
+myrep = s.get(url+f"location.name?input=Væddeløbsbanen&type=S")
 pp = pprint.PrettyPrinter(depth=4)
 #pp.pprint(myrep.json())
 
 #851030703
-#A=1@O=Eternitten (Østre Allé / Aalborg)@X=9937054@Y=57038111@U=86@L=851030703@B=1@p=1739790541
-#A=1@O=Eternitten (Bornholmsgade / Aalborg)@X=9935795@Y=57038228@U=86@L=851008902@
-myrep = s.get(url+f"multiArrivalBoard?idList='A=1@O=JomfruAneGade(Borgergade/Aalborg)@X=9918212@Y=57050957@U=86@L=851002402@B=1@p=1739892283@'&date=2025-02-20&time=08:00&duration=60")
+ost = "A=1@O=Eternitten (Østre Allé / Aalborg)@X=9937054@Y=57038111@U=86@L=851030703@B=1@p=1739790541"
+born = "A=1@O=Eternitten (Bornholmsgade / Aalborg)@X=9935795@Y=57038228@U=86@L=851008902@"
+ved = "A=1@O=Væddeløbsbanen (Skydebanevej / Aalborg)@X=9881159@Y=57054184@U=86@L=851007301@B=1@p=1739892283@"
+jom = "A=1@O=Jomfru Ane Gade (Borgergade / Aalborg)@X=9918212@Y=57050957@U=86@L=851002402@B=1@p=1739892283@"
+myrep = s.get(url+f"multiArrivalBoard?idList="+born+f"&date=2025-02-20&time=08:00&duration=60")
 #print(myrep.json())
 fdict=myrep.json()
 
