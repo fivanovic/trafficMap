@@ -7,6 +7,6 @@ cd /
 cd home/fivan/trafficMap
 export TERM=linux
 export TERMINFO=/etc/terminfo
-sudo python curseTest.py
+sudo python tracker.py
 cd /
 
