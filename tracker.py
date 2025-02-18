@@ -1,6 +1,8 @@
 import numpy as np
 import sys
-import numpy
+
+import curses
+import time
 numpy.set_printoptions(threshold=sys.maxsize)
 
 L2stat = np.array(["VDB", "HLD", "AVS", "JAG", "NYT", "AAS", "JLG", "KLD", "ETT", "SGP", "DAL", "GLT", "SBS", "PLP", "GNT", "PTP", "FIB", "FRB", "AAU"],dtype=object)
@@ -70,13 +72,47 @@ while p < 19:
 
 i = 0
 j = 0
-
+"""
 while j < 106:
     while i < 19:
         if L2Map[j,i] == 0:
             L2Map[j,i] = " "
         i = i+1
     j = j+1
+"""
+#print(L2Map)
+#np.savetxt("test.csv", L2Map, delimiter=",", fmt='%s')
 
-print(L2Map)
-np.savetxt("test.csv", L2Map, delimiter=",", fmt='%s')
+mywindow = curses.initscr()
+
+matrix = L2Map
+
+def updateMatrix(m):
+    if m[0][0] == "I":
+        m[0][0] = "i"
+        return m
+    else:
+        m[0][0] = "I"
+        return m
+
+def getMarixString(m):
+    x = ''
+    for row in m:
+        x += ' '.join(str(item) for item in row)
+        x += "\n"
+    return x
+
+z = 10
+mywindow.addstr("Aalborg Line 2 Visualiser")
+while z > 1:
+    matrix = updateMatrix(matrix)
+    try:
+        mywindow.addstr(1,0, getMarixString(matrix))
+    except curses.error:
+        pass
+    mywindow.refresh()
+
+    time.sleep(1)
+
+curses.endwin()
+quit()
