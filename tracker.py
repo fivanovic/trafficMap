@@ -5,12 +5,14 @@ import curses
 import time
 np.set_printoptions(threshold=sys.maxsize)
 
-L2stat = np.array([" VDB", " HLD", " AVS", " JAG", "NYT ", "AAS ", " JLG", "KLD ", "ETT ", "SGP ", "DAL ", " GLT", " SBS", " PLP", " GNT", " PTP", " FIB", " FRB", " AAU"],dtype=object)
+L2stat = np.array([" VDB", " HLD", " AVS", " JAG", " NYT ", "AAS ", " JLG", "KLD ", "ETT ", "SGP ", "DAL ", " GLT", " SBS", " PLP", " GNT", " PTP", " FIB", " FRB", " AAU"],dtype=object)
 L2split1 = ["SML", "HPT"]
-L2dir = np.array([0,0,0,1,1,0,0,1,1,1,0,0,0,0,0,0,0,0,4])
-L2NameLoc = np.array([0,0,0,1,3,3,0,2,3,3,3,0,0,0,0,0,0,0,0])
+L2dir = np.array([0,0,0,0,1,0,0,1,1,1,0,0,0,0,0,0,0,0,4])
+L2NameLoc = np.array([0,0,0,0,1,3,0,2,3,3,3,0,0,0,0,0,0,0,0])
 
-L2Map = np.zeros([55,106],dtype=(str,1))
+
+
+L2Map = np.zeros([55,150],dtype=(str,1))
 
 def writer(labels,names,map, i, j, k):
     temp = list(names[k])
@@ -89,6 +91,7 @@ def draw(map,nameLoc,stat,dir,statNum):
     return map
 
 L2Map = draw(L2Map,L2NameLoc,L2stat,L2dir,19)
+print(L2Map)
 
 mywindow = curses.initscr()
 curses.resize_term( 1000, 1000 )
