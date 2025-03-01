@@ -17,9 +17,9 @@ url = f"https://www.rejseplanen.dk/api/"
 #lineInf= myrep.json()
 #pp = pprint.PrettyPrinter(depth=4)
 #pp.pprint(lineInf)
-#myrep = s.get(url+f"location.name?input=Eternitten&type=S")
-#pp = pprint.PrettyPrinter(depth=4)
-#pp.pprint(myrep.json())
+myrep = s.get(url+f"location.name?input=Eternitten&type=S")
+pp = pprint.PrettyPrinter(depth=4)
+pp.pprint(myrep.json())
 
 #851030703
 #ost = "A=1@O=Eternitten (Østre Allé / Aalborg)@X=9937054@Y=57038111@U=86@L=851030703@B=1@p=1739790541"
@@ -30,10 +30,10 @@ myrep = s.get(url+f"multiArrivalBoard?idList="+born+f"&date="+day+f"&time="+tim+
 #print(myrep.json())
 fdict=myrep.json()
 
-l1=fdict["Arrival"]
+#l1=fdict["Arrival"]
 
-pp = pprint.PrettyPrinter(depth=4)
-pp.pprint(l1)
+#pp = pprint.PrettyPrinter(depth=4)
+#pp.pprint(l1)
 
 i=0
 """
