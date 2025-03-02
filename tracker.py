@@ -5,15 +5,15 @@ import curses
 import time
 np.set_printoptions(threshold=sys.maxsize)
 
-L2stat = np.array([" VDB", " HLD", " AVS", " JAG", " NYT ", " AAS", " JLG", " KLD", " ETT", " SGP", " DAL", " GLT", " SBS", " PLP", " GNT", " PTP", " FIB", " FRB", " AAU"],dtype=object)
+L2stat = np.array([" VDB", " VFV", " HLD", " AVS", " JAG", " NYT ", " AAS", " JLG", " KLD", " ETT", " SGP", " DAL", " GLT", " SBS", " PLP", " GNT", " PTP", " FIB", " FRB", " AAU"],dtype=object)
 L2split1 = ["SML", "HPT"]
-L2dir = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,4])
-L2NameLoc = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0])
+L2dir = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,4])
+L2NameLoc = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0])
 
 
 
 L2Map = np.zeros([55,300],dtype=(str,1))
-L2statLoc = np.zeros([19,2])
+L2statLoc = np.zeros([20,2])
 
 def writer(labels,names,map, i, j, k):
     temp = list(names[k])
@@ -100,7 +100,7 @@ def draw(map,nameLoc,stat,dir,statNum,statLoc):
         p = p+1
     return map,statLoc
 
-L2Map,L2statLoc = draw(L2Map,L2NameLoc,L2stat,L2dir,19,L2statLoc)
+L2Map,L2statLoc = draw(L2Map,L2NameLoc,L2stat,L2dir,20,L2statLoc)
 #print(L2statLoc)
 
 mywindow = curses.initscr()
