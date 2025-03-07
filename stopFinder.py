@@ -13,11 +13,11 @@ s.headers.update({'Authorization': 'Bearer deb79eea-1eee-430d-9632-1e987aa46c15'
 s.headers.update({'Accept': 'application/json'})
 url = f"https://www.rejseplanen.dk/api/"
 
-myrep = s.get(url+f"location.name?input=Aalborg Vestby St&type=S")
+myrep = s.get(url+f"location.name?input=AAU Busterminal (Sigrid Undsetsvej / Aalborg)&type=S")
 pp = pprint.PrettyPrinter(depth=4)
 pp.pprint(myrep.json())
 
-#UT = "A=1@O=Aalborg Vestby St. (Kastetvej / Aalborg Vestby St)@X=9908603@Y=57052665@U=86@L=851121902@B=1@p=1740743877@"
+UT = "A=1@O=AAU Fr.Bajers Vej (Bertil Ohlins Vej / Aalborg)@X=9983851@Y=57014919@U=86@L=851991602@B=1@"
 
 myrep = s.get(url+f"multiArrivalBoard?idList="+UT+f"&date="+day+f"&time="+tim+f"&duration=20")
 fdict=myrep.json()
