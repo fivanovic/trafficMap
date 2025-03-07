@@ -28,7 +28,7 @@ while 1:
     tim = datetime.today().strftime('%H:%M')
     deltaT = td.Timedelta()
     #myrep = s.get(url+f"multiArrivalBoard?idList="+vdb.downcode+"|"+vdb.upcode+"|"+vfw.downcode+"|"+vfw.upcode+"|"+hld.downcode+"|"+hld.upcode+"|"+avs.downcode+"|"+avs.upcode+"|"+jag.downcode+"|"+jag.upcode+"|"+nyt.downcode+"|"+nyt.upcode+"|"+aas.downcode+"|"+aas.upcode+"|"+jlg.downcode+"|"+jlg.upcode+"|"+kld.downcode+"|"+kld.upcode+"|"+ett.downcode+"|"+ett.upcode+"|"+sgp.downcode+"|"+sgp.upcode+"|"+dal.downcode+"|"+dal.upcode+"|"+glt.downcode+"|"+glt.upcode+"|"+sbs.downcode+"|"+sbs.upcode+"|"+plp.downcode+"|"+plp.upcode+"|"+gnt.downcode+"|"+gnt.upcode+"|"+ptp.downcode+"|"+ptp.upcode+"|"+fib.downcode+"|"+fib.upcode+"|"+frb.downcode+"|"+frb.upcode+"|"+aau.downcode+"|"+aau.upcode+f"&date="+day+f"&time="+tim+"&duration=30")
-    myrep = s.get(url+f"multiArrivalBoard?idList="+singletest.downcode+"|"+singletest.upcode+"|"+secondtester.upcode+"|"+secondtester.downcode+f"&date="+day+f"&time="+tim+"&duration=30")
+    #myrep = s.get(url+f"multiArrivalBoard?idList="+singletest.downcode+"|"+singletest.upcode+"|"+secondtester.upcode+"|"+secondtester.downcode+f"&date="+day+f"&time="+tim+"&duration=30")
     #fdict=myrep.json()
     #ettBoard = fdict["Arrival"]
 
